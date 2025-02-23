@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button dengan GIF & Lagu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 18px;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="content">
+        <h1>Selamat Datang Kawan Mhiuuu</h1>
+        <p>Semoga anda suka dengan ini...</p>
+        <button class="btn" onclick="ubahHalaman()">Klik dong uyy</button>
+    </div>
+
+    <script>
+        function ubahHalaman() {
+            document.body.innerHTML = `
+                <div class="container">
+                    <h1>Selamat tidur 🎶😴🛌🏽</h1>
+                    <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExaXg1MTNrdmE2d3g3b3phdTRhYXhxcnNqZmdybzB3YmE2YWtsY3RidyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/p2CEaWZgc9yIsbRNeC/giphy.gif" alt="GIF Animasi">
+                    <audio id="lagu" autoplay loop>
+                        <source src="https://github.com/Babisama1/laguAPT/raw/refs/heads/main/Sesuatu%20Di%20Jogja%20-%20Adhitia%20Sofyan%20(Cover%20by%20Mitty%20Zasia).mp3" type="audio/mp3">
+                        Browser kamu tidak mendukung audio.
+                    </audio>
+                    <br>
+                    <button class="btn" onclick="kembali()">Kembali</button>
+                </div>
+            `;
+    
+            let lagu = document.getElementById("lagu");
+    
+            // Paksa audio untuk play setelah klik
+            lagu.play().catch(error => {
+                console.log("Autoplay dicegah, klik tombol kembali lalu coba lagi.", error);
+            });
+        }
+    
+        function kembali() {
+            location.reload(); // Reload halaman untuk kembali ke tampilan awal
+        }
+    </script>
+    
+
+</body>
+</html>
